@@ -27,4 +27,13 @@ def print1Name(names):
 # print1Name(nemo)
 # print1Name(everyone)
 # print1Name(array_1000)
-print1Name(array_1000000)
+# print1Name(array_1000000)
+
+letters = ['a', 'b', 'c', 'd', 'e']
+
+def logAllPairs(array):
+    for i in array:
+        for j in array:
+            print(i, j)
+
+logAllPairs(letters)

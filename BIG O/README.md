@@ -2,8 +2,9 @@
 
 - [What is good code ?](#what-is-good-code-)
 - [How can we measure the efficiency of this code?](#how-can-we-measure-the-efficiency-of-this-code)
-- [O(n)](#on)
 - [O(1)](#o1)
+- [O(n)](#on)
+- [O(n^2)](#on2)
 - [Big O Calculation - Exercise 1](#big-o-calculation---exercise-1)
 - [Big O Calculation - Exercise 2](#big-o-calculation---exercise-2)
 - [Simplifying Big O](#simplifying-big-o)
@@ -59,17 +60,37 @@ This gives us an idea of how scalable a function is, because we can have an algo
 
 *Plot made with Bokeh on file `plots.py`. (bigOPlot)*
 
+## O(1)
+
+Function: `print1Name` on `code.py` file
+
+How much this function's runtime grow as the input increases?
+1. If we had an array with 1 name, it is gonna run the whole function 1 time.  
+2. If we had an array with 10 names, it is gonna run the whole function 1 time. 
+3. If we had an array with 1000 names, it is gonna run the whole function 1 time. 
+4. If we had an array with 1000000 names, it is gonna run the whole function 1 time. 
+ 
+If we plot those values with y-axis "# Operations" and x-axis "input size", we are gonna come up with a constant function:
+
+<p align="center">
+<img src="Images/o(1).svg" alt="drawing" width="400"/>
+</p>
+
+*Plot made with Bokeh on file `plots.py`. (bigO1Plot)*
+
+CONCLUSION: This function's runtime doesn't grow as the input increases.
+
 ## O(n)
 
 **EXAMPLE:**  
 
-Function: `findNemo` function on `code.py` file
+Function: `findNemo` on `code.py` file
 
 How much this function's runtime grow as the input increases?
 1. If we had an array with 50 names, it is gonna run the whole function 50 times. 
 2. If we had an array with 150 names, it is gonna run the whole function 150 times. 
 3. If we had an array with 250 names, it is gonna run the whole function 250 times. 
-3. If we had an array with 450 names, it is gonna run the whole function 450 times. 
+4. If we had an array with 450 names, it is gonna run the whole function 450 times. 
 
 If we plot those values with y-axis "# Operations" and x-axis "input size", we are gonna come up with a linear function:
 
@@ -81,23 +102,25 @@ If we plot those values with y-axis "# Operations" and x-axis "input size", we a
 
 CONCLUSION: This function's runtime grows linearly as the input increases.
 
-## O(1)
+## O(n^2)
 
-Function: `print1Name` function on `code.py` file
+Function: `logAllPairs` on `code.py` file
 
 How much this function's runtime grow as the input increases?
-1. If we had an array with 1 name, it is gonna run the whole function 1 time.  
-2. If we had an array with 10 names, it is gonna run the whole function 1 time. 
-3. If we had an array with 1000 names, it is gonna run the whole function 1 time. 
-4. If we had an array with 1000000 names, it is gonna run the whole function 1 time. 
+1. If we had an array with 5 items, it is gonna run the whole function 25 times. 
+2. If we had an array with 10 items, it is gonna run the whole function 100 times. 
+3. If we had an array with 15 items, it is gonna run the whole function 225 times. 
+4. If we had an array with 20 items, it is gonna run the whole function 400 times. 
+
+If we plot those values with y-axis "# Operations" and x-axis "input size", we are gonna come up with a quadratic function:
 
 <p align="center">
-<img src="Images/o(1).svg" alt="drawing" width="400"/>
+<img src="Images/o(n^2).svg" alt="drawing" width="400"/>
 </p>
 
-*Plot made with Bokeh on file `plots.py`. (bigO1Plot)*
+*Plot made with Bokeh on file `plots.py`. (bigOn2Plot)*
 
-CONCLUSION: This function's runtime doesn't grow as the input increases.
+CONCLUSION: This function's runtime has a quadratic growth as the input increases.
 
 ## Big O Calculation - Exercise 1
 

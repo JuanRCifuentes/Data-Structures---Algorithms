@@ -133,5 +133,33 @@ if __name__ == "__main__":
 
         export_svg(fig, filename="BIG O/Images/o(1).svg")
 
+    # FOURTH PLOT - O(n^2)
+    def bigOn2Plot(total_vals=500):
+    
+        fig = figure(plot_width=500, plot_height=500, title="O(n^2) - logAllPairs()")
+        
+        setPlotStyle(fig)
+        setONotationStyle(fig)
+        fig.x_range = Range1d(0, 25)
+
+        x_vals = list(range(0, total_vals))
+
+        lines = [
+            { "label": "O(n^2)", "values": [val**2 for val in x_vals], "color": "black" }
+        ]
+
+        drawLines(fig, lines, x_vals)
+
+        points = {
+            "x_values": [5, 10, 15, 20],
+            "y_values": [25, 100, 225, 400]
+        }
+
+        fig.circle(points["x_values"], points["y_values"], size=20, color="navy")
+
+        fig.legend.location = 'top_left'
+
+        export_svg(fig, filename="BIG O/Images/o(n^2).svg")
+    
     # DRAW EVERY PLOT ON A COLUMN
-    c = [bigOPlot(), bigOnPlot(), bigO1Plot()]
+    c = [bigOPlot(), bigO1Plot(), bigOnPlot(), bigOn2Plot(),]
