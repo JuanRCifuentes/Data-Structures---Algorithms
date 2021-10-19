@@ -5,13 +5,15 @@
 - [O(1)](#o1)
 - [O(n)](#on)
 - [O(n^2)](#on2)
-- [Big O Calculation - Exercise 1](#big-o-calculation---exercise-1)
-- [Big O Calculation - Exercise 2](#big-o-calculation---exercise-2)
 - [Simplifying Big O](#simplifying-big-o)
   - [Rule 1: Worst Case](#rule-1-worst-case)
   - [Rule 2: Remove Constants](#rule-2-remove-constants)
   - [Rule 3: Different terms for inputs](#rule-3-different-terms-for-inputs)
   - [Rule 4: Drop Non Dominants](#rule-4-drop-non-dominants)
+  - [CHEAT SHEET](#cheat-sheet)
+- [Exercises](#exercises)
+  - [Big O Calculation - Exercise 1](#big-o-calculation---exercise-1)
+  - [Big O Calculation - Exercise 2](#big-o-calculation---exercise-2)
 
 Big O analysis is extremely important! 
 It tells how well a problem is solved.
@@ -122,55 +124,11 @@ If we plot those values with y-axis "# Operations" and x-axis "input size", we a
 
 CONCLUSION: This function's runtime has a quadratic growth as the input increases.
 
-## Big O Calculation - Exercise 1
-
-What is the Big O of the below function? (Hint, you may want to go line by line)
-
-```javascript
-function funChallenge(input) {
-  let a = 10;
-  a = 50 + 3;
-
-  for (let i = 0; i < input.length; i++) {
-    anotherFunction();
-    let stranger = true;
-    a++;
-  }
-  return a;
-}
-```
-
-The function above, runs 2 lines of code at first, then a loop n times, and each of the times it loops, it runs 3 lines. Finally, at the end it returns something. To put that mathematically, it makes `3+3n` operations for an input `n` long.
-
-## Big O Calculation - Exercise 2
-
-What is the Big O of the below function? (Hint, you may want to go line by line)
-
-```javascript
-function anotherFunChallenge(input) {
-  let a = 5;
-  let b = 10;
-  let c = 50;
-  for (let i = 0; i < input; i++) {
-    let x = i + 1;
-    let y = i + 2;
-    let z = i + 3;
-
-  }
-  for (let j = 0; j < input; j++) {
-    let p = j * 2;
-    let q = j * 2;
-  }
-  let whoAmI = "I don't know";
-}
-```
+**NOTE:** When there are nested loops, usually the complexity is `O(n^2)`, because for each iteration of the outer loop, the inner loop runs completely. It basically means the complexity now becomes `n*n` which is `n^2`.
 
 The function above, runs 3 lines of code at first, then a loop n times, and each of the times it loops, it runs 3 lines. Then it runs another loop n times and each iteration executes 2 lines of code. Finally, at the end it runs one las line of code. To put that mathematically, it makes `4+5n` operations for an input `n` long.
 
 ## Simplifying Big O
-
-We just need to find the faster scaling term within the function that defines the number of operations per input. For example, if we have `3n+7`, `3n` scales faster than 7, so we can just take the first term. 
-
 We can define 4 rules to define Big O consistently faster
 
 ### Rule 1: Worst Case
@@ -200,5 +158,57 @@ There are sometimes multiple loops going around multiple inputs. For example, th
 
 "Just because you see multiple for loops in a single function, it doesn't mean they are looping over the same items".
 
-
 ### Rule 4: Drop Non Dominants
+We just need to find the faster scaling term within the function that defines the number of operations per input. For example, if we have `3n+7`, `3n` scales faster than 7, so we can just take the first term. 
+
+If we have a function which complexity is `O(n^2 + 4n + 10000)`, as we said before, we can drop the constant as in [Rule 2](#rule-2-remove-constants), but later, we got two different terms... `n^2` and `4n`. Following the same logic when we ignored constnats, `n^2` scales way faster than `4n`, so we call it **The dominant term**.
+
+Finally, we just need to keep into our notation the dominant term. `O(n^2 + 4n + 10000)` becomes `O(n^2)`.
+
+
+### [CHEAT SHEET](cheatSheet.md)
+
+## Exercises
+
+### Big O Calculation - Exercise 1
+
+What is the Big O of the below function? (Hint, you may want to go line by line)
+
+```javascript
+function funChallenge(input) {
+  let a = 10;
+  a = 50 + 3;
+
+  for (let i = 0; i < input.length; i++) {
+    anotherFunction();
+    let stranger = true;
+    a++;
+  }
+  return a;
+}
+```
+
+The function above, runs 2 lines of code at first, then a loop n times, and each of the times it loops, it runs 3 lines. Finally, at the end it returns something. To put that mathematically, it makes `3+3n` operations for an input `n` long.
+
+### Big O Calculation - Exercise 2
+
+What is the Big O of the below function? (Hint, you may want to go line by line)
+
+```javascript
+function anotherFunChallenge(input) {
+  let a = 5;
+  let b = 10;
+  let c = 50;
+  for (let i = 0; i < input; i++) {
+    let x = i + 1;
+    let y = i + 2;
+    let z = i + 3;
+
+  }
+  for (let j = 0; j < input; j++) {
+    let p = j * 2;
+    let q = j * 2;
+  }
+  let whoAmI = "I don't know";
+}
+```
