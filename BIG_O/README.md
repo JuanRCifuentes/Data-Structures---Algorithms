@@ -2,27 +2,22 @@
 
 - [What is good code ?](#what-is-good-code-)
 - [How can we measure the efficiency of this code?](#how-can-we-measure-the-efficiency-of-this-code)
-- [O(1)](#o1)
-- [O(n)](#on)
-- [O(n^2)](#on2)
+- [O(1) - Constant](#o1---constant)
+- [O(n) - Linear](#on---linear)
+- [O(n^2) - Quadratic](#on2---quadratic)
+- [O(n!) - Factorial or... Oh no !](#on---factorial-or-oh-no-)
 - [Simplifying Big O](#simplifying-big-o)
   - [Rule 1: Worst Case](#rule-1-worst-case)
   - [Rule 2: Remove Constants](#rule-2-remove-constants)
   - [Rule 3: Different terms for inputs](#rule-3-different-terms-for-inputs)
   - [Rule 4: Drop Non Dominants](#rule-4-drop-non-dominants)
-  - [CHEAT SHEET](#cheat-sheet)
 - [Exercises](#exercises)
   - [Big O Calculation - Exercise 1](#big-o-calculation---exercise-1)
   - [Big O Calculation - Exercise 2](#big-o-calculation---exercise-2)
 
-Big O analysis is extremely important! 
-It tells how well a problem is solved.
+Big O analysis is extremely important! It tells how well a problem is solved in terms of time... Time complexity.
 
 Big O will come up on every section of the course.
-
-## What is good code ?
-1. **Readable**
-2. **Scalable - Big O Notation:** Instructions must be efficient, so as the number of inputs increase, the program doesn't constantly slow down.
 
 **Example:**
 
@@ -62,7 +57,7 @@ This gives us an idea of how scalable a function is, because we can have an algo
 
 *Plot made with Bokeh on file `plots.py`. (bigOPlot)*
 
-## O(1)
+## O(1) - Constant
 
 Function: `print1Name` on `code.py` file
 
@@ -82,7 +77,7 @@ If we plot those values with y-axis "# Operations" and x-axis "input size", we a
 
 CONCLUSION: This function's runtime doesn't grow as the input increases.
 
-## O(n)
+## O(n) - Linear
 
 **EXAMPLE:**  
 
@@ -104,7 +99,7 @@ If we plot those values with y-axis "# Operations" and x-axis "input size", we a
 
 CONCLUSION: This function's runtime grows linearly as the input increases.
 
-## O(n^2)
+## O(n^2) - Quadratic
 
 Function: `logAllPairs` on `code.py` file
 
@@ -127,6 +122,13 @@ CONCLUSION: This function's runtime has a quadratic growth as the input increase
 **NOTE:** When there are nested loops, usually the complexity is `O(n^2)`, because for each iteration of the outer loop, the inner loop runs completely. It basically means the complexity now becomes `n*n` which is `n^2`.
 
 The function above, runs 3 lines of code at first, then a loop n times, and each of the times it loops, it runs 3 lines. Then it runs another loop n times and each iteration executes 2 lines of code. Finally, at the end it runs one las line of code. To put that mathematically, it makes `4+5n` operations for an input `n` long.
+
+
+## O(n!) - Factorial or... Oh no !
+
+Usually when something has this level of complexity... something is wrong
+
+Factorial means: `x! = x*(x-1)(x-2)...(1)`, and in programming terms, it means we're adding a nested loop for every input that we have.
 
 ## Simplifying Big O
 We can define 4 rules to define Big O consistently faster
@@ -165,8 +167,7 @@ If we have a function which complexity is `O(n^2 + 4n + 10000)`, as we said befo
 
 Finally, we just need to keep into our notation the dominant term. `O(n^2 + 4n + 10000)` becomes `O(n^2)`.
 
-
-### [CHEAT SHEET](cheatSheet.md)
+[CHEAT SHEET](cheatSheet.md)
 
 ## Exercises
 
@@ -187,8 +188,7 @@ function funChallenge(input) {
   return a;
 }
 ```
-
-The function above, runs 2 lines of code at first, then a loop n times, and each of the times it loops, it runs 3 lines. Finally, at the end it returns something. To put that mathematically, it makes `3+3n` operations for an input `n` long.
+The function above, runs 2 lines of code at first, then a loop n times, and each of the times it loops, it runs 3 lines. Finally, at the end it returns something. To put that mathematically, it makes `2+3n+1` or `3+3n` operations for an input `n` long, which means it has a complexity `O(n)`
 
 ### Big O Calculation - Exercise 2
 
@@ -212,3 +212,4 @@ function anotherFunChallenge(input) {
   let whoAmI = "I don't know";
 }
 ```
+The function above, runs 3 lines of code at first, then a loop n times, and each of the times it loops, it runs 3 lines, then another loop n times with each of the iterartions making two operations. Finally, at the end it runs another line of code. To put that mathematically, it makes `3+3n+2n+1` or `4+5n` operations for an input `n` long, which means it has a complexity `O(n)`
