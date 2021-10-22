@@ -1,2 +1,4 @@
 .DS_Store
 workspace.code-workspace
+.replit
+pyproject.toml
