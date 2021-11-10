@@ -6,11 +6,11 @@
 - [Basic Data Structures](#basic-data-structures)
   - [Arrays](#arrays)
     - [Static vs. Dynamic](#static-vs-dynamic)
-- [Hash Tables](#hash-tables)
-  - [Hash function](#hash-function)
-  - [Buckets](#buckets)
-  - [Collisions](#collisions)
-  - [Excercises](#excercises)
+  - [Hash Tables](#hash-tables)
+    - [Hash function](#hash-function)
+    - [Buckets](#buckets)
+    - [Collisions](#collisions)
+    - [Excercises](#excercises)
 - [How is data stored on a computer](#how-is-data-stored-on-a-computer)
 
 ## Summary 
@@ -84,7 +84,7 @@ Static arrays have a fixed length, we cannot add or append things. To change the
 
 **Exercise: Reverse a String** Function `reverse()` in file `arrays.py`.
 
-## Hash Tables
+### Hash Tables
 
 - A hash table is a Data structure that uses a "Hash function" to find a place in memory for it's data. The Hash function converts the key into a number, and the language uses that number as the index in which the element is placed in memory.
 - Elements are not sequencially placed in memory, as index is generated from the key and is almost a random number.
@@ -118,7 +118,7 @@ Inserting an element into a hash table means storing it in memory using the inde
 4. **Delete [`O(1)`]:**
 To delete an element from a hash table, the functions needs to find the element using the hash funciton (with the key) and erase it from memory. There is no need to update the index of the other elements.
 
-### Hash function
+#### Hash function
 - A Hash function usually returns a number given an element. 
 - The number could be in a hexadecimal base. 
 - The returned value is always the same for the same input.
@@ -138,17 +138,17 @@ _hash(key) {
 This hash function recieves a key and makes operations with each character (because the key is a string for this function) to finally return a number. The returned number cannot be higher than the variable maximum.
 
 
-### Buckets
+#### Buckets
 A bucket is most commonly a type of data buffer or a type of document in which data is divided into regions.
 
-### Collisions
+#### Collisions
 Because the index for each element in a hash table is given by the hash function and it can be repeated for multiple key values, there may be what is called a "collision". A collision means two or more elements are stored in the same bucket because the hash function returns the same index for those elements.
 
 There are multiple ways to solve collisions.
 
 One way to solve a collision, is allowing buckets to store multiple elements with it's keys. This means that the `get()` and `set()` methods for hash tables need a change to deal with collisions. Usually those methods simply iterate over the bucket to get every element stores insede them and this adds complexity to the functions. Because collisions rarely happen, complexity for `get()` and `set()` methods can be considered `O(1)`.
 
-### Excercises
+#### Excercises
 Excercises are solved in file `hash_tables.py`.
 1. Functions for the `MyHashTable` class:
      - Create hash table function `set(key, value)`. It must store the value and the key in the index dictated by the hash function `_hash(key)`. Returns the bucket in which the element is stored
