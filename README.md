@@ -75,4 +75,4 @@ This function created an array, the index variable and an item in the array for 
 
 Data Structures are a fundamental to know. 
 
-Collection of values and have relations between them and functions. Each one have differences in what it can do and what it is best used for. 
+Collection of values and have relations between them and functions. Each one have differences in what it can do and what it is best used for.
