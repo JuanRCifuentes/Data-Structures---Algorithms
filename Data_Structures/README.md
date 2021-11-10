@@ -157,6 +157,9 @@ Excercises are solved in file `hash_tables.py`.
 2. Function `firstRecurringCharacter(array)`. The function recieves an array of numbers and must return the first recurring character.
      - Using nested loops
      - Using hash tables
+3. Function `containsCommonItem(array1, array2)`. Given 2 arrays, create a function that let a user know (true/false) whether these two arrays contain any common items
+     - Using nested loops
+     - Using hash tables
 
 ## How is data stored on a computer 
 
