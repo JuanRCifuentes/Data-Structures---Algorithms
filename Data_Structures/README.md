@@ -11,6 +11,14 @@
     - [Buckets](#buckets)
     - [Collisions](#collisions)
     - [Excercises](#excercises)
+  - [Linked Lists](#linked-lists)
+    - [Pointer](#pointer)
+    - [Doubly linked lists](#doubly-linked-lists)
+    - [Single vs. Double](#single-vs-double)
+    - [Excercises](#excercises-1)
+  - [Stacks + Queues](#stacks--queues)
+  - [Trees](#trees)
+  - [Graphs](#graphs)
 - [How is data stored on a computer](#how-is-data-stored-on-a-computer)
 
 ## Summary 
@@ -160,6 +168,166 @@ Excercises are solved in file `hash_tables.py`.
 3. Function `containsCommonItem(array1, array2)`. Given 2 arrays, create a function that let a user know (true/false) whether these two arrays contain any common items
      - Using nested loops
      - Using hash tables
+     - Using python syntax to summarize in just one line.
+
+### Linked Lists
+- There are singly and doubly linked lists.
+- A linked list is a list of elements that are related to the next element. The list itself only points to the first element, which points to the second one, which points to the third one and so on.
+- The elements in a linked list are nodes, which contains a value and a pointer to the next node.
+- NULL terminated: The last item points to `null`, and that is how we know the list ends.
+- First node is called `head` and the last one is called `tail`.
+  
+PROS:
+- It doesn't have a memory space determined like arrays.
+- It doesn't have to change indexes like arrays to make operations such as insert or delete.
+- Linked lists are ordered, unlike hash tables they can be easily iterated
+
+CONS:
+- Some languages are optimized to read from from spots nearly situated in memory, which means, even if in theory `preppend()` in linked lists is `O(1)`, it may take longer than in arrays, because in linked lists, elements are scattered all over the memory.
+
+**OPERATIONS:**
+| Lookup   | Append   | Insert   | Delete   |
+|----------|----------|----------|----------|
+| O(n)     | O(1)     | O(n)     | O(n)     |
+
+> In file `linked_lists.py` we wrote a class called "MyLinkedList" to understand how the basic methods for hash linked lists work.
+
+1. **Lookup [`O(n)`]:**
+Because we have to go through all the items
+
+2. **Append [`O(1)`]:**
+We have to make the tail element point to the element we are appending, aand that new last element most point to `null`.
+
+- Prepend is also O(1), because it only needs to place a node in the first place which points to the old first element.
+
+3. **Insert [`O(n)`]:**
+We have to go one by one and find the correct index
+
+4. **Delete [`O()`]:**
+We hae to find the item, so we gotta go through the whole list
+
+#### Pointer
+> "A pointer is a reference to another place in memory" - Andrei Neagoie
+
+**Example:**
+```javascript
+const object = { a: true };
+const pointer = object;
+```
+
+The variable `object` is pointing to a space in memory where `{ a: true }` is. In the second line we make the variable `pointer` points to the same space in memory. 
+
+The example is tested in `linked_lists.py` file, function `pointers`.
+
+#### Doubly linked lists
+It's a simply linked in which every element points to the previous node as well as the next node.
+- Whith a doubly linked list we can go backwards, because in a singly linked list, there is no way to know what comes before the node you are currently in.
+- Searches may be faster but we need a little bit more memory, because we have to save one more block.
+
+> In file `linked_lists_doubly.py` we wrote a class called "MyLinkedList" to understand how the basic methods for doubly linked lists work.
+
+#### Single vs. Double
+Single:
+- Requires less memory
+- A little bit faster
+- Cannot be iterated backwards
+
+Double:
+- Can be iterated backwards
+- It is more complex to implement
+- Requires more memory
+
+#### Excercises
+1. Functions for the `MyLinkedList` class in file `linked_lists.py`:
+     - Additional class for nodes
+     - Create funciton to append an element to the list
+     - Create a function to prepend an element to the list
+     - Create a function to insert an element to the list
+     - Create a funciton to delete an element from the list
+2. Functions for the `MyLinkedList` class in file `linked_lists_doubly.py`:
+     - Additional class for nodes
+     - Create funciton to append an element to the list
+     - Create a function to prepend an element to the list
+     - Create a function to insert an element to the list
+     - Create a funciton to delete an element from the list
+3. Function to REVERSE a singly linked list in the `MyLinkedList` class in file `linked_lists.py`
+### Stacks + Queues
+- Item
+
+PROS:
+
+CONS:
+
+**OPERATIONS:**
+| Lookup   | Push     | Insert   | Delete   |
+|----------|----------|----------|----------|
+| O()     | O()     | O()     | O()     |
+
+> In file `stacks.py` we wrote a class called "MyStack" to understand how the basic methods for hash tables work.
+
+1. **Lookup [`O()`]:**
+<!-- Because items are stored in memory and the program knows where each item is (using the key), to get an item using its index. `O(1)` -->
+
+2. **Push [`O()`]:**
+<!-- To push an element into a hash table, it just needs to store the element in the place in memory dictated by the hash function (with the key). -->
+
+3. **Insert [`O()`]:**
+<!-- Inserting an element into a hash table means storing it in memory using the index dictated by the hash function (with the key). There is no need to update the index of the other items. -->
+
+4. **Delete [`O()`]:**
+<!-- To delete an element from a hash table, the functions needs to find the element using the hash funciton (with the key) and erase it from memory. There is no need to update the index of the other elements. -->
+
+### Trees
+- Item
+
+PROS:
+
+CONS:
+
+**OPERATIONS:**
+| Lookup   | Push     | Insert   | Delete   |
+|----------|----------|----------|----------|
+| O()     | O()     | O()     | O()     |
+
+> In file `trees.py` we wrote a class called "MyTree" to understand how the basic methods for hash tables work.
+
+1. **Lookup [`O()`]:**
+<!-- Because items are stored in memory and the program knows where each item is (using the key), to get an item using its index. `O(1)` -->
+
+2. **Push [`O()`]:**
+<!-- To push an element into a hash table, it just needs to store the element in the place in memory dictated by the hash function (with the key). -->
+
+3. **Insert [`O()`]:**
+<!-- Inserting an element into a hash table means storing it in memory using the index dictated by the hash function (with the key). There is no need to update the index of the other items. -->
+
+4. **Delete [`O()`]:**
+<!-- To delete an element from a hash table, the functions needs to find the element using the hash funciton (with the key) and erase it from memory. There is no need to update the index of the other elements. -->
+
+### Graphs
+- Item
+
+PROS:
+
+CONS:
+
+**OPERATIONS:**
+| Lookup   | Push     | Insert   | Delete   |
+|----------|----------|----------|----------|
+| O()     | O()     | O()     | O()     |
+
+> In file `graphs.py` we wrote a class called "MyGraph" to understand how the basic methods for hash tables work.
+
+1. **Lookup [`O()`]:**
+<!-- Because items are stored in memory and the program knows where each item is (using the key), to get an item using its index. `O(1)` -->
+
+2. **Push [`O()`]:**
+<!-- To push an element into a hash table, it just needs to store the element in the place in memory dictated by the hash function (with the key). -->
+
+3. **Insert [`O()`]:**
+<!-- Inserting an element into a hash table means storing it in memory using the index dictated by the hash function (with the key). There is no need to update the index of the other items. -->
+
+4. **Delete [`O()`]:**
+<!-- To delete an element from a hash table, the functions needs to find the element using the hash funciton (with the key) and erase it from memory. There is no need to update the index of the other elements. -->
 
 ## How is data stored on a computer 
 
